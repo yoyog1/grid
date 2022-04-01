@@ -1,0 +1,297 @@
+@charset "UTF-8";
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+    box-sizing: border-box;
+    text-decoration: none;
+    a:hover {
+        opacity: 0.3;
+    }
+    
+    color: #333;
+    p{font-size: 12px;}
+    li{
+        font-size: 12px;
+        list-style: none;
+    }
+    h1{
+        font-size: 20px;
+    }
+
+}
+@mixin flexRow($jusCo:center,$aliCo:center,$aliItm:center){
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: $jusCo;
+    align-content: $aliCo;
+    align-items: $aliItm;
+}
+body{
+    display: flex;
+    flex-flow: column wrap;
+    // align-content: center;
+    align-items: center;
+    >*{
+        max-width: 1200px;
+        padding: 0 30px;
+    }
+// ＼ パソコン ／
+@media (min-width: 769px) {
+    header{
+        @include flexRow(space-between,center);
+        
+        >*{
+            margin: 15px;
+            
+        }
+        position: fixed;
+        background-color: #fff;
+        width: 100%;
+        
+        
+    }
+    main{
+        
+
+        @include flexRow();
+        // margin-top: 70px;
+        //  margin-bottom: 110px;
+         padding: 70px 30px 55px 30px;
+         width: 100%;
+
+        .container{
+            @include flexRow();
+            div{
+            width: 25%;
+            padding: 0 15px 40px 15px;
+                a{
+                    &:first-child{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        div{
+            &.hiddMen{
+                    padding: 0;
+                    margin: 0;
+
+                    position: absolute;
+                    top: 0;
+                    // left: 0;
+                    background-color: rgba($color: #000000, $alpha:.8);
+                    background-size:cover;
+
+                    
+                    width: 100%;
+                    height: 100vh;
+                    margin: 0;
+                    padding: 0 44px;
+
+                    @include flexRow(center, start,start);
+                    max-width: 1200px;  
+    
+                div{
+                    @include flexRow(space-between,start, start);
+                    width: 100%;
+
+                    position: fixed;
+                    top: 0;
+                    
+                                     
+                    // @include flexRow(space-between,flex-start,start);
+                    
+                    // display: flex;
+                    // flex-flow: row wrap;
+                    // justify-content: space-between;
+                    *{
+                        color: #fff;
+                    }
+                    ul{
+                        // margin-top: 50px;
+                        li{
+                            margin: 25px 0 30px;
+                            //  margin: 15px;
+                            line-height: 100%;
+                            letter-spacing: 100%;
+
+                        }
+                    }
+                        p{
+                            font-size: 25px;
+                            line-height: 100%;
+                            // position: relative;
+                            // top: 0;
+                            // right: 0;
+                            margin: 15px 0;
+                        }
+                }
+             display: none;
+            }
+        }
+    
+    }
+    footer{
+        width: 100%;
+        >*{
+            margin: 20px;
+        }
+        
+
+        @include flexRow(space-between);
+        ul{
+            @include flexRow();
+            li{
+                margin-right: 30px;
+            }
+        }
+        p{}
+
+    }
+}
+@mixin forPcTo ($device){
+    header{
+        @include flexRow(space-between,center);
+        
+        >*{
+            margin: 15px;
+            
+        }
+        &:first-child{
+
+        }
+        position: fixed;
+        background-color: #fff;
+        width: 100%;
+        
+        
+    }
+    main{
+        
+
+        @include flexRow();
+        // margin-top: 70px;
+        //  margin-bottom: 110px;
+         padding: 70px 30px 55px 30px;
+
+        .container{
+            @include flexRow();
+            div{
+            width: $device;
+            padding: 0 15px 40px 15px;
+                a{
+                    &:first-child{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        div{
+            &.hiddMen{
+                    padding: 0;
+                    margin: 0;
+
+                    position: absolute;
+                    top: 0;
+                    // left: 0;
+                    background-color: rgba($color: #000000, $alpha:.8);
+
+                    
+                    width: 100%;
+                    height: 100vh;
+                    margin: 0;
+                    padding: 0 44px;
+
+                    @include flexRow(center, start,start);
+    
+                div{
+                    @include flexRow(space-between,start, start);
+                    width: 100%;                   
+                    // @include flexRow(space-between,flex-start,start);
+                    
+                    // display: flex;
+                    // flex-flow: row wrap;
+                    // justify-content: space-between;
+                    *{
+                        color: #fff;
+                    }
+                    ul{
+                        // margin-top: 50px;
+                        li{
+                            margin: 25px 0 30px;
+                            //  margin: 15px;
+                            line-height: 100%;
+                            letter-spacing: 100%;
+
+                        }
+                    }
+                        p{
+                            font-size: 25px;
+                            line-height: 100%;
+                            // position: relative;
+                            // top: 0;
+                            // right: 0;
+                            margin: 15px 0;
+                        }
+                }
+             display: none;
+            }
+        }
+
+    }
+    footer{
+        width: 100%;
+        >*{
+            margin: 20px;
+        }
+        
+
+        @include flexRow(space-between);
+        ul{
+            @include flexRow();
+            li{
+                margin-right: 30px;
+            }
+        }
+        p{}
+
+    }
+
+    
+}
+// ／タブレット＼
+@media (max-width: 768px) {
+    @include forPcTo(50%);
+    header{
+        
+
+    }
+    main{}
+    footer{}
+    
+}
+// ／スマホ＼
+@media (max-width: 640px) {
+    @include forPcTo(50%);
+
+    main{
+        // @include flexRow();
+        //  margin-bottom: 110px;
+
+        .container{
+            // @include flexRow();
+            div{
+            // width: 100%;
+            // padding: 0 20px 40px 20px;
+            }
+        }
+    }
+
+}
+}
